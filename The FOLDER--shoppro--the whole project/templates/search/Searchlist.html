@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>list for class</title>
+    {% include 'base/links.html' %}
+</head>
+<body>
+
+{% block content %}
+{% include 'base/navbar.html' %}
+<div class='row'>
+{%if request.GET.q%}
+            <div class="col-12 mb-3">
+                Results for<b> {{request.GET.q}}</b>
+                <hr/>
+            </div>
+            {% else %}
+            <div class="col-12 col-md-8 mx-auto py-5">
+                No Results.Seach another product
+                <input class='form-control' type ="text" placeholder="Search">
+            </div>
+            <div class="col-12">
+                </hr>
+            </div>
+            {%endif%}
+</div>
+
+<div class='row'>
+    {% for obj in object_list %}
+        <div class='col'>
+        {% include 'product/cards.html' with instance=obj %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>

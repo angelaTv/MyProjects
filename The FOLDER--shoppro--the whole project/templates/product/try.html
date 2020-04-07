@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>list for class</title>
+</head>
+<body>
+<img src="{% static 'product/tshirt.jpg' %}" alt='My image'><br/>
+{%for obj in object_list%}
+<!--<a href="{{obj.get_absolute_url}}">{{obj.title}}</a><br/>-->
+<a href="{{obj.slug}}/">{{obj.title}}</a><br/>
+{%endfor%}
+
+
+<!--{% extends "base.html" %}-->
+
+<!--{% block content %}-->
+<!--        <div class='row'>-->
+
+<!--    {% for obj in object_list %}-->
+<!--        <div class='col my-3'>-->
+<!--        {% include 'product/snippets/card.html' with instance=obj %}-->
+
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<!--{% endblock %}-->
+
+

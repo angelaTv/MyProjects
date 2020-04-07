@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>list for class</title>
+     {% include 'base/links.html' %}
+</head>
+<body>
+
+{% block content %}
+{% include 'base/navbar.html' %}
+        <div class='row'>
+
+    {% for obj in object_list %}
+        <div class='col my-3'>
+        {% include 'product/cards.html' with instance=obj %}
+        
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
